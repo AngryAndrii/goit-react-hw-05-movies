@@ -1,12 +1,11 @@
 import { useParams } from 'react-router';
 
 const Details = () => {
-  const params = useParams();
-  console.log(params);
+  const { movieId } = useParams();
   return (
     <>
       <h3>Details</h3>
-      <>Details</>
+      <>Details: {movieId}</>
     </>
   );
 };

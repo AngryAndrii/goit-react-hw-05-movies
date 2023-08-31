@@ -11,16 +11,15 @@ export const App = () => {
     <>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/Movies">Movies</Link>
+        <Link to="/movies">Movies</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="movies" element={<Movies />} />
-        <Route path="movies/:movieId" element={<Details />}>
+        <Route path="/movies/:movieId" element={<div>Collection element</div>}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

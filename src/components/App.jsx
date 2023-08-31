@@ -15,12 +15,12 @@ export const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Movies" element={<Movies />}>
-          <Route path=":movieId" element={<Details />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<Details />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

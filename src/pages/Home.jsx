@@ -7,7 +7,7 @@ const Home = () => {
       <div>
         {['film-1', 'film-2', 'film-3', 'film-4', 'film-5'].map(el => {
           return (
-            <Link key={el} to={`${el}`}>
+            <Link key={el} to={`/movies/${el}`}>
               {el}
             </Link>
           );

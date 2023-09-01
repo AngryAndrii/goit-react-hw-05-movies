@@ -13,15 +13,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchTrending = async () => {
-    try {
-      
+      try {
         const movies = await trendingQuery();
         console.log(movies);
-      };
-    } catch (error) {
-      console.log(error);
-    }
-    fetchTrending();
+      } catch (error) {
+        console.log(error);
+      }
+      fetchTrending();
+    };
   }, []);
 
   //

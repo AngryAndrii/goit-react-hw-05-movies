@@ -15,6 +15,11 @@ export const trendingQuery = async () => {
   return resp.data.results;
 };
 
+export const detailsQuery = async id => {
+  const resp = await axios.get(`movie/${id}`, params);
+  return resp.data;
+};
+
 export const reviewsQuery = async () => {
   const resp = await axios.get('movie/980489/reviews', params);
   return resp.data.results;
@@ -23,11 +28,6 @@ export const reviewsQuery = async () => {
 export const castQuery = async () => {
   const resp = await axios.get('movie/980489/credits', params);
   return resp.data.cast;
-};
-
-export const detailsQuery = async () => {
-  const resp = await axios.get('movie/980489', params);
-  return resp.data;
 };
 
 export const searchQuery = async () => {

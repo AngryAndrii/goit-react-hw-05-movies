@@ -15,12 +15,12 @@ const Home = () => {
     const fetchTrending = async () => {
       try {
         const movies = await trendingQuery();
-        console.log(movies);
+        setTrendMovies(movies);
       } catch (error) {
         console.log(error);
       }
-      fetchTrending();
     };
+    fetchTrending();
   }, []);
 
   //
@@ -36,12 +36,6 @@ const Home = () => {
   // };
   // fetchCast();
   //
-  // const fetchDetails = async () => {
-  //   const details = await detailsQuery();
-  //   console.log(details);
-  // };
-  // fetchDetails();
-  //
   // const fetchSearch = async () => {
   //   const searchResult = await searchQuery();
   //   console.log(searchResult);
@@ -52,11 +46,11 @@ const Home = () => {
     <>
       <h3>Home</h3>
       <ul>
-        {['film-1', 'film-2', 'film-3', 'film-4', 'film-5'].map(el => {
+        {trendMovies.map(el => {
           return (
-            <li key={el}>
-              <Link key={el} to={`/movies/${el}`}>
-                {el}
+            <li key={el.id}>
+              <Link key={el} to={`/movies/${el.id}`}>
+                {el.original_title}
               </Link>
             </li>
           );

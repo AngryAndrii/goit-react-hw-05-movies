@@ -1,7 +1,7 @@
 const Cast = () => {
   return (
     <>
-      <h3>Cast</h3>
+      <h4>Cast</h4>
     </>
   );
 };

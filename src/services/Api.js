@@ -20,14 +20,14 @@ export const detailsQuery = async id => {
   return resp.data;
 };
 
-export const reviewsQuery = async () => {
-  const resp = await axios.get('movie/980489/reviews', params);
-  return resp.data.results;
+export const castQuery = async id => {
+  const resp = await axios.get(`movie/${id}/credits`, params);
+  return resp.data.cast;
 };
 
-export const castQuery = async () => {
-  const resp = await axios.get('movie/980489/credits', params);
-  return resp.data.cast;
+export const reviewsQuery = async id => {
+  const resp = await axios.get(`movie/${id}/reviews`, params);
+  return resp.data.results;
 };
 
 export const searchQuery = async () => {

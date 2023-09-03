@@ -30,7 +30,7 @@ export const reviewsQuery = async id => {
   return resp.data.results;
 };
 
-export const searchQuery = async () => {
-  const resp = await axios.get('search/movie?query=jaws', params);
+export const searchQuery = async query => {
+  const resp = await axios.get(`search/movie?query=${query}`, params);
   return resp.data.results;
 };

@@ -10,11 +10,14 @@ const Movies = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setSearchParams({ query: event.currentTarget.elements.movieSearch.value });
+    const inputValue = event.currentTarget.elements.movieSearch.value;
+    inputValue === ''
+      ? setSearchParams({})
+      : setSearchParams({ query: inputValue });
   };
 
   useEffect(() => {
-    if (movieQuery === null) {
+    if (movieQuery === null || movieQuery === '') {
       return;
     }
     const fetchMovies = async () => {

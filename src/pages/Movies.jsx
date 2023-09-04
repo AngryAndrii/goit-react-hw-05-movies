@@ -18,6 +18,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (movieQuery === null || movieQuery === '') {
+      setMovies([]);
       return;
     }
     const fetchMovies = async () => {

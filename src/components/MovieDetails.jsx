@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { detailsQuery } from 'services/Api';
 
 const Details = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -33,6 +34,7 @@ const Details = () => {
     details && (
       <>
         <h3>Details</h3>
+        <Link to={location.state?.from ?? '/'}>Go back</Link>
         <img
           src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
           alt={original_title}

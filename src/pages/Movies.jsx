@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { searchQuery } from 'services/Api';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   const movieQuery = searchParams.get('query');
 
@@ -37,6 +38,7 @@ const Movies = () => {
     movies && (
       <>
         <h3>Movies</h3>
+        <Link to={location.state?.from ?? '/'}>Go back</Link>
         <form action="" onSubmit={handleSubmit}>
           <input
             type="text"

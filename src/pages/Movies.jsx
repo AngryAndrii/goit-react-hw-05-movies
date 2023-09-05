@@ -42,7 +42,6 @@ const Movies = () => {
     movies && (
       <>
         <h3>Movies</h3>
-        <Link to={location.state?.from ?? '/'}>Go back</Link>
         <form action="" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -61,7 +60,9 @@ const Movies = () => {
             <ul>
               {movies?.map(({ id, original_title }) => (
                 <li key={id}>
-                  <Link to={`/movies/${id}`}>{original_title}</Link>
+                  <Link state={{ from: location }} to={`/movies/${id}`}>
+                    {original_title}
+                  </Link>
                 </li>
               ))}
             </ul>

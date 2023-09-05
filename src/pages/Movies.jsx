@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { searchQuery } from 'services/Api';
+import Loader from 'components/Loader/Loader';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
 
   const movieQuery = searchParams.get('query');
@@ -24,11 +26,13 @@ const Movies = () => {
     }
     const fetchMovies = async () => {
       try {
+        setLoading(true);
         const movies = await searchQuery(movieQuery);
-        console.log(movies);
         setMovies(movies);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovies();
@@ -51,13 +55,17 @@ const Movies = () => {
           <button type="submit">Search</button>
         </form>
         <div>
-          <ul>
-            {movies?.map(({ id, original_title }) => (
-              <li key={id}>
-                <Link to={`/movies/${id}`}>{original_title}</Link>
-              </li>
-            ))}
-          </ul>
+          {loading ? (
+            <Loader />
+          ) : (
+            <ul>
+              {movies?.map(({ id, original_title }) => (
+                <li key={id}>
+                  <Link to={`/movies/${id}`}>{original_title}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </>
     )

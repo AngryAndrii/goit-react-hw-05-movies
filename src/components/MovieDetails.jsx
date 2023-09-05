@@ -3,19 +3,26 @@ import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { detailsQuery } from 'services/Api';
+import Loader from './Loader/Loader';
 
 const Details = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState([]);
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const detail = await detailsQuery(movieId);
-        setDetails(detail);
+        setLoading(true);
+        const details = await detailsQuery(movieId);
+        setDetails(details);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchDetails();
@@ -30,35 +37,49 @@ const Details = () => {
     poster_path,
   } = details;
 
+  const year = new Date(release_date).getFullYear();
+  const userScore = Math.floor(vote_average * 10);
+
   return (
     details && (
       <>
         <h3>Details</h3>
         <Link to={location.state?.from ?? '/'}>Go back</Link>
-        <img
-          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-          alt={original_title}
-        />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <img
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                  : defaultImg
+              }
+              alt={original_title}
+              width={300}
+            />
 
-        <h3>
-          {original_title} {release_date}
-        </h3>
-        <p>user score {vote_average}</p>
-        <p>{overview}</p>
-        <ul>
-          {genres?.map(({ id, name }) => (
-            <li key={id}>{name}</li>
-          ))}
-        </ul>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
-          <li>
-            <Link to="reviews">Reviws</Link>
-          </li>
-        </ul>
-        <Outlet />
+            <h3>
+              {original_title} ({year})
+            </h3>
+            <p>user score {userScore}%</p>
+            <p>{overview}</p>
+            <ul>
+              {genres?.map(({ id, name }) => (
+                <li key={id}>{name}</li>
+              ))}
+            </ul>
+            <ul>
+              <li>
+                <Link to="cast">Cast</Link>
+              </li>
+              <li>
+                <Link to="reviews">Reviws</Link>
+              </li>
+            </ul>
+            <Outlet />
+          </>
+        )}
       </>
     )
   );

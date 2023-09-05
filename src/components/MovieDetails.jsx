@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
@@ -10,6 +10,7 @@ const Details = () => {
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? '/');
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
@@ -39,12 +40,13 @@ const Details = () => {
 
   const year = new Date(release_date).getFullYear();
   const userScore = Math.floor(vote_average * 10);
+  console.log(backLinkRef);
 
   return (
     details && (
       <>
         <h3>Details</h3>
-        <Link to={location.state?.from ?? '/'}>Go back</Link>
+        <Link to={backLinkRef.current}>Go back</Link>
         {loading ? (
           <Loader />
         ) : (

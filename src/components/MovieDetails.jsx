@@ -40,7 +40,6 @@ const Details = () => {
 
   const year = new Date(release_date).getFullYear();
   const userScore = Math.floor(vote_average * 10);
-  console.log(backLinkRef);
 
   return (
     details && (

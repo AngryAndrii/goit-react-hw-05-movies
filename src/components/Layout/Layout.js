@@ -1,9 +1,10 @@
 import { Link, Outlet } from 'react-router-dom';
+import Header from './Layout.styled';
 
 const Layout = () => {
   return (
     <>
-      <header>
+      <Header>
         <nav>
           <ul>
             <li>
@@ -14,7 +15,7 @@ const Layout = () => {
             </li>
           </ul>
         </nav>
-      </header>
+      </Header>
       <main>
         <Outlet />
       </main>

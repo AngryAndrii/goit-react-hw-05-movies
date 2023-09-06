@@ -3,7 +3,8 @@ import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { detailsQuery } from 'services/Api';
-import Loader from './Loader/Loader';
+import Loader from '../Loader/Loader';
+import StyledDetails from './MovieDetails.styled';
 
 const Details = () => {
   const { movieId } = useParams();
@@ -43,9 +44,11 @@ const Details = () => {
 
   return (
     details && (
-      <>
+      <StyledDetails>
         <h3>Details</h3>
-        <Link to={backLinkRef.current}>Go back</Link>
+        <Link to={backLinkRef.current}>
+          <button>go back</button>
+        </Link>
         {loading ? (
           <Loader />
         ) : (
@@ -70,18 +73,22 @@ const Details = () => {
                 <li key={id}>{name}</li>
               ))}
             </ul>
-            <ul>
+            <ul className="addInfo">
               <li>
-                <Link to="cast">Cast</Link>
+                <Link to="cast">
+                  <button>Cast</button>
+                </Link>
               </li>
               <li>
-                <Link to="reviews">Reviws</Link>
+                <Link to="reviews">
+                  <button>Reviews</button>
+                </Link>
               </li>
             </ul>
             <Outlet />
           </>
         )}
-      </>
+      </StyledDetails>
     )
   );
 };

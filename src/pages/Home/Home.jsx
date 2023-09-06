@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { trendingQuery } from 'services/Api';
 import Loader from 'components/Loader/Loader';
-import List from './Home.styled';
+import List, { Title } from './Home.styled';
 
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <h2>trending today</h2>
+      <Title>trending today</Title>
       {loading ? (
         <Loader />
       ) : (
@@ -47,7 +47,7 @@ const Home = () => {
                       alt={original_title}
                       width={200}
                     />
-                    {original_title}
+                    <span>{original_title}</span>
                   </div>
                 </Link>
               </li>

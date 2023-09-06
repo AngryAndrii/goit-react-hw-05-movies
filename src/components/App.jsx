@@ -1,11 +1,11 @@
 import Cast from 'components/Cast';
-import Home from 'pages/Home';
+import Home from 'pages/Home/Home';
 import Details from 'components/MovieDetails';
 import Movies from 'pages/Movies';
 import NotFound from 'pages/NotFound';
 import Reviews from 'components/Reviews';
 import { Routes, Route } from 'react-router-dom';
-import Layout from './Layout';
+import Layout from './Layout/Layout';
 
 export const App = () => {
   return (

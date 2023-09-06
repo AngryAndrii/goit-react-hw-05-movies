@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { trendingQuery } from 'services/Api';
 import Loader from 'components/Loader/Loader';
+import List from './Home.styled';
 
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
     const fetchTrending = async () => {
@@ -25,25 +28,32 @@ const Home = () => {
 
   return (
     <>
-      <h3>Home</h3>
+      <h2>trending today</h2>
       {loading ? (
         <Loader />
       ) : (
-        <ul>
-          {trendMovies.map(el => {
+        <List>
+          {trendMovies.map(({ poster_path, id, original_title }) => {
             return (
-              <li key={el.id}>
-                <Link
-                  state={{ from: location }}
-                  key={el}
-                  to={`/movies/${el.id}`}
-                >
-                  {el.original_title}
+              <li key={id}>
+                <Link state={{ from: location }} to={`/movies/${id}`}>
+                  <div>
+                    <img
+                      src={
+                        poster_path
+                          ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                          : defaultImg
+                      }
+                      alt={original_title}
+                      width={200}
+                    />
+                    {original_title}
+                  </div>
                 </Link>
               </li>
             );
           })}
-        </ul>
+        </List>
       )}
     </>
   );

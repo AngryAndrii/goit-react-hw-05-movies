@@ -17,6 +17,11 @@ const Header = styled.header`
     display: block;
     height: 25px;
     font-size: 18px;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: #145369;
   }
 
   height: 50px;

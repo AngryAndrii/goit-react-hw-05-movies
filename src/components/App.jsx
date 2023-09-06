@@ -1,6 +1,6 @@
 import Cast from 'components/Cast';
 import Home from 'pages/Home/Home';
-import Details from 'components/MovieDetails';
+import Details from 'components/MovieDetails/MovieDetails';
 import Movies from 'pages/Movies';
 import NotFound from 'pages/NotFound';
 import Reviews from 'components/Reviews';

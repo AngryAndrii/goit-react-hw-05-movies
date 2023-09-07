@@ -26,6 +26,10 @@ const Header = styled.header`
 
   height: 50px;
   border-bottom: 2px solid #2596be;
+
+  .active {
+    color: #2596be;
+  }
 `;
 
 export default Header;

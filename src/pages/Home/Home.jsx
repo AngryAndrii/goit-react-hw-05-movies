@@ -33,7 +33,7 @@ const Home = () => {
         <Loader />
       ) : (
         <List>
-          {trendMovies.map(({ poster_path, id, original_title }) => {
+          {trendMovies.map(({ poster_path, id, title }) => {
             return (
               <li key={id}>
                 <Link state={{ from: location }} to={`/movies/${id}`}>
@@ -44,10 +44,10 @@ const Home = () => {
                           ? `https://image.tmdb.org/t/p/w300/${poster_path}`
                           : defaultImg
                       }
-                      alt={original_title}
+                      alt={title}
                       width={200}
                     />
-                    <span>{original_title}</span>
+                    <span>{title}</span>
                   </div>
                 </Link>
               </li>

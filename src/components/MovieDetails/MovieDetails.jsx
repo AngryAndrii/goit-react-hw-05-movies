@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { detailsQuery } from 'services/Api';
 import Loader from '../Loader/Loader';
 import StyledDetails from './MovieDetails.styled';
@@ -30,14 +31,8 @@ const Details = () => {
     fetchDetails();
   }, [movieId]);
 
-  const {
-    original_title,
-    release_date,
-    vote_average,
-    overview,
-    genres,
-    poster_path,
-  } = details;
+  const { title, release_date, vote_average, overview, genres, poster_path } =
+    details;
 
   const year = new Date(release_date).getFullYear();
   const userScore = Math.floor(vote_average * 10);
@@ -59,12 +54,12 @@ const Details = () => {
                   ? `https://image.tmdb.org/t/p/w300/${poster_path}`
                   : defaultImg
               }
-              alt={original_title}
+              alt={title}
               width={300}
             />
 
             <h3>
-              {original_title} ({year})
+              {title} ({year})
             </h3>
             <p>user score {userScore}%</p>
             <p>{overview}</p>
@@ -85,7 +80,9 @@ const Details = () => {
                 </Link>
               </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
           </>
         )}
       </StyledDetails>

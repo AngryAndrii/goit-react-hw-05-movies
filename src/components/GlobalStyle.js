@@ -40,4 +40,14 @@ a {
 img {
   display: block;
 }
+
+
+  footer {
+    text-align: center;
+    margin-bottom: 10px;
+
+  }
+  footer > p {
+  color: #145369;
+  }
 `;

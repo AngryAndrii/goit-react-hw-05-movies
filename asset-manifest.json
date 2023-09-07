@@ -1,13 +1,27 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.7cda0caf.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.e126d1db.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c902c98c.js",
+    "static/js/544.f158bf50.chunk.js": "/goit-react-hw-05-movies/static/js/544.f158bf50.chunk.js",
+    "static/js/310.d05a6e40.chunk.js": "/goit-react-hw-05-movies/static/js/310.d05a6e40.chunk.js",
+    "static/js/805.9335cbfa.chunk.js": "/goit-react-hw-05-movies/static/js/805.9335cbfa.chunk.js",
+    "static/js/387.b902f6a9.chunk.js": "/goit-react-hw-05-movies/static/js/387.b902f6a9.chunk.js",
+    "static/js/375.2a0480d0.chunk.js": "/goit-react-hw-05-movies/static/js/375.2a0480d0.chunk.js",
+    "static/js/779.955e865d.chunk.js": "/goit-react-hw-05-movies/static/js/779.955e865d.chunk.js",
+    "static/js/279.59536aa8.chunk.js": "/goit-react-hw-05-movies/static/js/279.59536aa8.chunk.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.7cda0caf.css.map": "/goit-react-hw-05-movies/static/css/main.7cda0caf.css.map",
-    "main.e126d1db.js.map": "/goit-react-hw-05-movies/static/js/main.e126d1db.js.map"
+    "main.c902c98c.js.map": "/goit-react-hw-05-movies/static/js/main.c902c98c.js.map",
+    "544.f158bf50.chunk.js.map": "/goit-react-hw-05-movies/static/js/544.f158bf50.chunk.js.map",
+    "310.d05a6e40.chunk.js.map": "/goit-react-hw-05-movies/static/js/310.d05a6e40.chunk.js.map",
+    "805.9335cbfa.chunk.js.map": "/goit-react-hw-05-movies/static/js/805.9335cbfa.chunk.js.map",
+    "387.b902f6a9.chunk.js.map": "/goit-react-hw-05-movies/static/js/387.b902f6a9.chunk.js.map",
+    "375.2a0480d0.chunk.js.map": "/goit-react-hw-05-movies/static/js/375.2a0480d0.chunk.js.map",
+    "779.955e865d.chunk.js.map": "/goit-react-hw-05-movies/static/js/779.955e865d.chunk.js.map",
+    "279.59536aa8.chunk.js.map": "/goit-react-hw-05-movies/static/js/279.59536aa8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.e126d1db.js"
+    "static/js/main.c902c98c.js"
   ]
 }

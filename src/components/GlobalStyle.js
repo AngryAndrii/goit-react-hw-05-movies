@@ -36,4 +36,8 @@ main {
 a {
   text-decoration: none;
 }
+
+img {
+  display: block;
+}
 `;

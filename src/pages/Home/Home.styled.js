@@ -5,8 +5,9 @@ const List = styled.ul`
     display: flex;
     flex-direction: column;
     row-gap: 7px;
-    border: 2px solid #2596be;
+    /* outline: 1px solid #2596be; */
     max-width: 200px;
+    width: 200px;
     height: 350px;
     box-shadow: rgba(37, 150, 190, 0.3) 1.95px 1.95px 2.6px;
   }
@@ -16,7 +17,7 @@ const List = styled.ul`
   }
 
   span {
-    color: #145369;
+    color: #2596be;
     font-size: 15px;
     font-weight: 500;
     padding-left: 3px;

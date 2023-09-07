@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import Header from './Layout.styled';
 
 const Layout = () => {
@@ -8,10 +8,10 @@ const Layout = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/movies">Movies</Link>
+              <NavLink to="/movies">Movies</NavLink>
             </li>
           </ul>
         </nav>

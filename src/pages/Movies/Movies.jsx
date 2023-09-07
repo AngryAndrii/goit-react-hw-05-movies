@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { searchQuery } from 'services/Api';
 import Loader from 'components/Loader/Loader';
+import StyledMovies from './Movies.styled';
+import List from 'pages/Home/Home.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   const movieQuery = searchParams.get('query');
 
@@ -40,8 +44,8 @@ const Movies = () => {
 
   return (
     movies && (
-      <>
-        <h3>Movies</h3>
+      <StyledMovies>
+        <h2>Movies</h2>
         <form action="" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -57,18 +61,29 @@ const Movies = () => {
           {loading ? (
             <Loader />
           ) : (
-            <ul>
-              {movies?.map(({ id, original_title }) => (
+            <List>
+              {movies?.map(({ id, title, poster_path }) => (
                 <li key={id}>
                   <Link state={{ from: location }} to={`/movies/${id}`}>
-                    {original_title}
+                    <div>
+                      <img
+                        src={
+                          poster_path
+                            ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                            : defaultImg
+                        }
+                        alt={title}
+                        width={200}
+                      />
+                      <span>{title}</span>
+                    </div>
                   </Link>
                 </li>
               ))}
-            </ul>
+            </List>
           )}
         </div>
-      </>
+      </StyledMovies>
     )
   );
 };

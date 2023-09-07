@@ -1,7 +1,7 @@
 import Cast from 'components/Cast/Cast';
 import Home from 'pages/Home/Home';
 import Details from 'components/MovieDetails/MovieDetails';
-import Movies from 'pages/Movies';
+import Movies from 'pages/Movies/Movies';
 import NotFound from 'pages/NotFound';
 import Reviews from 'components/Reviews/Reviews';
 import { Routes, Route } from 'react-router-dom';

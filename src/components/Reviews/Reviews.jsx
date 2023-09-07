@@ -19,11 +19,10 @@ const Reviews = () => {
     fetchReviews();
   }, [movieId]);
 
-  {
-    if (reviews.length === 0) {
-      return <h2>There are no reviews</h2>;
-    }
+  if (reviews.length === 0) {
+    return <h2>There are no reviews</h2>;
   }
+
   return (
     reviews && (
       <StyledReviews>
